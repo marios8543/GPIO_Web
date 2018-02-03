@@ -1,0 +1,23 @@
+<center>
+<h1>GPIO_WEB Control Panel</h1>
+IP Address: <input id="ipaddr" type="text" maxlength="12" size="12"/><br><br>
+Pin: <input id="pinno" type="text" maxlength="2" size="2"/><br><br>
+<button onclick="turnon()">On</button><br><br>
+<button onclick="turnoff()">Off</button><br><br>
+
+<script>
+function turnon(){
+var ip_addr = document.getElementById("ipaddr").value;
+var pin = document.getElementById("pinno").value;
+var http = new XMLHttpRequest();
+http.open('GET',"http://"+ip_addr+"/gpio_web.php?action=write&pin="+pin+"&state=1",true);
+http.send();
+}
+function turnoff(){
+var ip_addr = document.getElementById("ipaddr").value;
+var pin = document.getElementById("pinno").value;
+var http = new XMLHttpRequest();
+http.open('GET',"http://"+ip_addr+"/gpio_web.php?action=write&pin="+pin+"&state=0",true);
+http.send();
+}
+</script>
