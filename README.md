@@ -20,15 +20,15 @@ The script accepts a GET request with the following parameters
 (So pretty much all of them)
 
 
-##Examples:
+## Examples:
 
-######Writing a pin
+###### Writing a pin
 ` http://*IP_Address*/gpio_web.php?action=write&pin=08&state=1 `
 
-######Getting the state of a pin in write mode:
+###### Getting the state of a pin in write mode:
 ` http://*IP_Address*/gpio_web.php?action=state&pin=08 `
 
-######Reading an input pin:
+###### Reading an input pin:
 ` http://*IP_Address*/gpio_web.php?action=read&pin=08 `
 
 The script will return a json-formatted result on a successful request or an error.
