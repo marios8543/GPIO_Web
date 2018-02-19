@@ -22,7 +22,8 @@ The script accepts a GET request with the following parameters
 
 3. Pin
 - Can be any of the raspberry pi pins accessible by Wiring Pi
-(So pretty much all of them)
+(So pretty much all of them)  
+Note: In both APIs use the board pin numbering not bcm
 
 ## Examples:
 
@@ -35,5 +36,5 @@ The script accepts a GET request with the following parameters
 ###### Reading an input pin:
 ` http://*IP_Address*/gpio_web.php?action=read&pin=08 `
 
-Similar syntax in python but use ` http://*IP_Address*/gpio_web? ` instead
+Similar syntax in python but use ` http://*IP_Address*/gpio_web? ` instead  
 The script will return a json-formatted result on a successful request or an error.
