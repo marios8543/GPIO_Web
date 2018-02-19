@@ -1,6 +1,7 @@
 <center>
 <h1>GPIO_WEB Control Panel</h1>
-IP Address: <input id="ipaddr" type="text" maxlength="12" size="12"/><br><br>
+IP Address: <input id="ipaddr" type="text" maxlength="20" size="12"/><br><br>
+Backend: <input id="php" type="radio" name="back" value="php">PHP <input id="python" type="radio" name="back" value="python">Python<br><br>
 Pin: <input id="pinno" type="text" maxlength="2" size="2"/><br><br>
 <button onclick="turnon()">On</button><br><br>
 <button onclick="turnoff()">Off</button><br><br>
@@ -10,14 +11,27 @@ function turnon(){
 var ip_addr = document.getElementById("ipaddr").value;
 var pin = document.getElementById("pinno").value;
 var http = new XMLHttpRequest();
+var backend = document.querySelector('input[name="back"]:checked').value;
+if(backend == 'php'){
 http.open('GET',"http://"+ip_addr+"/gpio_web.php?action=write&pin="+pin+"&state=1",true);
 http.send();
 }
+else{
+http.open('GET',"http://"+ip_addr+"/gpio_web?action=write&pin="+pin+"&state=1",true);
+http.send();
+}}
+
 function turnoff(){
 var ip_addr = document.getElementById("ipaddr").value;
 var pin = document.getElementById("pinno").value;
 var http = new XMLHttpRequest();
+var backend = document.querySelector('input[name="back"]:checked').value;
+if(backend == 'php'){
 http.open('GET',"http://"+ip_addr+"/gpio_web.php?action=write&pin="+pin+"&state=0",true);
 http.send();
 }
+else{
+http.open('GET',"http://"+ip_addr+"/gpio_web?action=write&pin="+pin+"&state=0",true);
+http.send();
+}}
 </script>
